@@ -26,7 +26,12 @@ pipeline {
                 sh "docker push localhost:5000/calculadora"
             }
         }
-	stage('docker run') {
+	stage('docker delete container') {
+            steps {
+                sh "docker rm calculadora"
+            }
+        }
+	stage('docker create container') {
             steps {
                 sh "docker run -d -p 9090:8090 --name calculadora localhost:5000/calculadora"
             }
