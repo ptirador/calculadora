@@ -29,7 +29,7 @@ pipeline {
 	stage('docker delete container') {
 	    when {
 		expression { 
-		    sh script: '''if [ -z $(sudo docker ps -a -f name=calculadora -q)]; then true; else false; fi''', returnStatus: true
+		    sh script: '''if [ -z $(sudo docker ps -a -f name=calculadora -q) ]; then true; else false; fi''', returnStatus: true
 		}
 	    }
             steps {
